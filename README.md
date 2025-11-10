@@ -55,7 +55,7 @@
 
 #### *Active Directory (AD)*
 
-![alt text](./img/Capture3.PNG)
+
 
 Active Directory, c'est le service d'annuaire signé Microsoft. Il centralise tout : utilisateurs, postes, groupes et ressources (imprimantes, partages, etc.). On y retrouve l'ensemble des objets du réseau stockés dans une base hiérarchique — pratique pour gérer les droits et l'accès.
 
@@ -1150,4 +1150,5 @@ Exemple concret : déploiement effectué le 12-06-2024 sur la VM "dc1-entreprise
 Changelog:
 
 - v1.0 — Reformulation complète pour ton équipe; ajouts : métadonnées, remarque pratique et exemple concret.
+
 - Corrections mineures de mise en forme.
