@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="active-directory">ACTIVE DIRECTORY</h1>
+<h2 id="sommaire">Sommaire</h2>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#mise-en-place-dactive-directory">Mise en place d'Active Directory</a>
+<ul>
+<li><a href="#prerequis">Prérequis</a></li>
+<li><a href="#installation">Installation (GUI &amp; PowerShell)</a></li>
+<li><a href="#promotion-du-serveur-en-contr%C3%B4leur-de-domaine-dc">Promotion du serveur en Contrôleur de Domaine (DC)</a></li>
+</ul>
+</li>
+<li><a href="#post-installation-et-v%C3%A9rifications-de-base">Post-installation et vérifications de base</a></li>
+<li><a href="#gestion-quotidienne-cr%C3%A9ation-et-administration-des-objets">Gestion quotidienne (utilisateurs, groupes, OU, GPO)</a></li>
+<li><a href="#comptes-de-service">Comptes de service (gMSA)</a></li>
+<li><a href="#sauvegarde-et-restauration">Sauvegarde et restauration</a></li>
+<li><a href="#r%C3%A9plication-active-directory">Réplication Active Directory</a>
+<ul>
+<li><a href="#concepts-cl%C3%A9s">Concepts clés</a></li>
+<li><a href="#sites-et-sous-r%C3%A9seaux">Sites et sous-r%C3%A9seaux</a></li>
+<li><a href="#outils-de-diagnostic-et-commandes-utiles">Outils et diagnostics</a></li>
+</ul>
+</li>
+<li><a href="#fsmo-flexible-single-master-operations">FSMO (Flexible Single Master Operations)</a></li>
+<li><a href="#d%C3%A9tails-techniques-ldap-kerberos-ntds-sysvol-gc-etc">Détails techniques (LDAP, Kerberos, NTDS, SYSVOL, GC, etc.)</a></li>
+<li><a href="#int%C3%A9gration-doutils-et-services-courants">Intégration d'outils et services courants</a></li>
+<li><a href="#s%C3%A9curit%C3%A9-et-bonnes-pratiques">Sécurité et bonnes pratiques</a></li>
+<li><a href="#checklist-de-mise-en-production">Checklist de mise en production</a></li>
+<li><a href="#r%C3%A9solution-de-probl%C3%A8mes-courants">Résolution de problèmes courants</a></li>
+<li><a href="#annexes--commandes-utiles">Annexes — scripts &amp; commandes utiles</a></li>
+</ul>
+<h2 id="introduction">Introduction</h2>
+<h4 id="active-directory-ad"><em>Active Directory (AD)</em></h4>
+<p><img src="./img/Capture3.PNG" alt="alt text"></p>
+<p>Active Directory, c'est le service d'annuaire signé Microsoft. Il centralise tout : utilisateurs, postes, groupes et ressources (imprimantes, partages, etc.). On y retrouve l'ensemble des objets du réseau stockés dans une base hiérarchique — pratique pour gérer les droits et l'accès.</p>
+<p>Concrètement, AD sert à :</p>
+<ul>
+<li>gérer les comptes et leurs droits d'accès,</li>
+<li>authentifier les utilisateurs lors de leurs connexions,</li>
+<li>appliquer des politiques de sécurité à l'échelle d'un domaine,</li>
+<li>organiser les ressources de l'entreprise de façon logique.</li>
+</ul>
+<p>En une phrase : AD, c'est le cœur de l'admin réseau Windows — il gère identités, accès et sécurité. C’est simple, mais essentiel.</p>
+<h4 id="domaine-active-directory"><em>Domaine Active Directory</em></h4>
+<p>Un domaine est l'unité de base d'Active Directory. Il rassemble des objets (utilisateurs, ordinateurs, groupes...) qui partagent la même base et les mêmes politiques.</p>
+<p>Chaque domaine possède :</p>
+<ul>
+<li>un nom unique (par exemple : entreprise.local),</li>
+<li>un ou plusieurs contrôleurs de domaine (Domain Controllers) qui stockent et répliquent les données.</li>
+</ul>
+<p>Les domaines peuvent être reliés entre eux pour former une forêt (voir plus bas).</p>
+<h4 id="for%C3%AAt-et-arbre-active-directory"><em>Forêt et Arbre Active Directory</em></h4>
+<p>Un arbre est un ensemble de domaines liés hiérarchiquement, partageant un espace de noms DNS. Une forêt regroupe un ou plusieurs arbres et partage le schéma, le catalogue global et les relations d'approbation (trusts).</p>
+<p>La forêt est donc l'unité logique la plus haute dans AD.</p>
+<p><img src="./img/Capture4.PNG" alt="alt text">
+<em>schema represenstatif des forets et domaines</em></p>
+<h4 id="contr%C3%B4leur-de-domaine-domain-controller"><em>Contrôleur de Domaine (Domain Controller)</em></h4>
+<p>Le contrôleur de domaine (DC) est le serveur principal d'un domaine AD. Il héberge la base NTDS.DIT et prend en charge :</p>
+<ul>
+<li>l'authentification (Kerberos/NTLM),</li>
+<li>la réplication vers les autres DC,</li>
+<li>la gestion des stratégies de sécurité.</li>
+</ul>
+<p>Sans DC, AD ne fonctionne pas. Point final.</p>
+<h4 id="unit%C3%A9-organisationnelle-ou-%E2%80%93-organizational-unit"><em>Unité Organisationnelle (OU – Organizational Unit)</em></h4>
+<p>L'OU est un conteneur logique pour organiser les objets. On s'en sert pour regrouper par service, déléguer l'administration ou appliquer des GPO sur des ensembles précis.</p>
+<h4 id="objets-active-directory"><em>Objets Active Directory</em></h4>
+<p>Les objets sont les éléments gérés : chaque objet a des attributs (nom, mot de passe, mail...) et une catégorie.</p>
+<p>Objets principaux :</p>
+<ul>
+<li>Utilisateur : compte humain ou de service.</li>
+<li>Groupe : ensemble d'utilisateurs pour appliquer des droits.</li>
+<li>Ordinateur : machine jointe au domaine.</li>
+<li>Imprimante, partage réseau, etc.</li>
+</ul>
+<h4 id="base-de-donn%C3%A9es-active-directory-ntdsdit"><em>Base de Données Active Directory (NTDS.DIT)</em></h4>
+<p>La base principale est le fichier NTDS.DIT, stocké sur le DC. Il contient :</p>
+<ul>
+<li>les objets du domaine,</li>
+<li>leurs attributs,</li>
+<li>les informations de sécurité et de réplication.</li>
+</ul>
+<p>Ce fichier est mis à jour en continu et répliqué entre DC.</p>
+<p>Pour des détails sur LDAP, référez-vous à la section &quot;Détails techniques&quot;.</p>
+<h4 id="dn-distinguished-name"><em>DN (Distinguished Name)</em></h4>
+<p>Le DN est le nom unique d'un objet dans LDAP/AD. Il renseigne sa position dans l'arborescence.</p>
+<pre class="hljs"><code><div>CN=Jean Dupont,OU=Informatique,DC=entreprise,DC=local
+</div></code></pre>
+<table>
+<thead>
+<tr>
+<th>Abréviation</th>
+<th>Signification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CN</td>
+<td>Common Name (nom de l’objet)</td>
+</tr>
+<tr>
+<td>OU</td>
+<td>Organizational Unit</td>
+</tr>
+<tr>
+<td>DC</td>
+<td>Domain Component</td>
+</tr>
+</tbody>
+</table>
+<h4 id="gpo-group-policy-object"><em>GPO (Group Policy Object)</em></h4>
+<p>Les GPO sont des règles de configuration. Elles permettent de gérer et sécuriser automatiquement postes et utilisateurs (ex : politique de mot de passe, fond d'écran, désactivation de services...).</p>
+<p>Pour une explication complète de Kerberos (TGT, KDC, tickets), voir la section &quot;Détails techniques&quot;.</p>
+<p>Pour la réplication (KCC, sites, inter-site), voir la section correspondante plus bas.</p>
+<h2 id="fonctionnement-dactive-directory">Fonctionnement d'Active Directory</h2>
+<h3 id="mise-en-place-dactive-directory">Mise en place d'Active Directory</h3>
+<hr>
+<p>Contexte : on part du déploiement d'un DC Windows Server (ex. Windows Server 2022) — souvent dans une VM (Proxmox, ESXi, Hyper-V). Cette section détaille les prérequis, l'installation du rôle AD DS, la promotion en DC et les outils d'administration (PowerShell / RSAT).</p>
+<p><img src="./img/Capture1.PNG" alt="alt text"></p>
+<h3 id="pr%C3%A9requis">Prérequis</h3>
+<ul>
+<li>Matériel recommandé (DC de test / petit site) : 2 vCPU, 4 Go RAM, disque 40 Go — adaptez en production selon la charge.</li>
+<li>OS : Windows Server 2016, 2019 ou 2022 (choisir le niveau fonctionnel adapté).</li>
+</ul>
+<p>Réseau :</p>
+<ul>
+<li>Adresse IP statique sur le serveur (éviter DHCP pour un DC).</li>
+<li>Nom d'hôte unique lisible (ex : dc1-entreprise).</li>
+<li>DNS : le serveur doit résoudre son propre nom et les enregistrements SRV du domaine. En pratique, mettez comme DNS principal l'IP fixe du DC (ou 127.0.0.1 quand on sait ce qu'on fait) et configurez des forwarders vers des DNS publics ou internes.</li>
+<li>Horloge : NTP synchronisé (un décalage &gt;5 min casse Kerberos).</li>
+</ul>
+<p>Comptes et permissions :</p>
+<ul>
+<li>Compte local admin pour l'installation.</li>
+<li>Compte de domaine avec droits suffisants si on ajoute un DC à un domaine existant.</li>
+</ul>
+<h3 id="installation">Installation</h3>
+<p>Pour demarer l'installation il vous faudra vous demarer et vous connecter sur le serveur Windows lui et assigner une @IP statique.</p>
+<p>1- Ouvrez le gestionnaire de serveur</p>
+<img src="./img/Capture2.png" alt="kerberos" width="300"/>
+<p><em>Le Gestionnaire de serveur est natif a Windows Server, celui-ci permet de gerer et configurer les fonctionnalité du systeme (AD, DNS, DHCP...), ainsi que de superviser l'état general du serveur</em></p>
+<p>2 - Cliquez sur ajouter des roles et fonctionnalitées</p>
+<p>3 - Selectionnez <em><strong>Installation basée sur un rôle ou une fonctionnalité</strong></em></p>
+<p>4 - J'ai selectionnez <strong>serveur local</strong></p>
+<p>5 - Cochez le service <strong>services AD DS</strong> pour installer le role Active Directory</p>
+<img src="./img/Capture8.png" alt="kerberos" width="600"/>
+<p><em>Ici on a deja les roles et groupes par defaut</em></p>
+<p>Il vous faudra ajoutez le role <em><strong>Active Directory Domain Services (AD DS)</strong></em> pour faire de ce serveur le controleur de domaine</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="./img/Capture9.png" alt="kerberos" width="600"/></td>
+<td><img src="./img/Capture10.png" alt="kerberos" width="600"/></td>
+</tr>
+<tr>
+<td><img src="./img/Capture11.png" alt="kerberos" width="600"/></td>
+<td><img src="./img/Capture12.png" alt="kerberos" width="600"/></td>
+</tr>
+<tr>
+<td><img src="./img/Capture13.png" alt="kerberos" width="600"/></td>
+<td><img src="./img/Capture14.png" alt="kerberos" width="600"/></td>
+</tr>
+</tbody>
+</table>
+<h3 id="modules-et-outils-dadministration-rsat--powershell">Modules et outils d'administration (RSAT / PowerShell)</h3>
+<ul>
+<li>Sur le serveur : l'installation du rôle AD DS installe généralement les outils d'administration. Modules PowerShell utiles : <code>ActiveDirectory</code> (Get-ADUser, New-ADUser...), <code>ADDSDeployment</code> (Install-ADDSForest...), <code>DnsServer</code> si besoin.</li>
+<li>Sur un poste Windows 10/11 : installez RSAT. Exemple PowerShell (Windows 10/11 modernes) :</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-comment"># Depuis une session PowerShell (admin) sur un poste Windows 10/11</span>
+<span class="hljs-built_in">Add-WindowsCapability</span> <span class="hljs-literal">-Online</span> <span class="hljs-literal">-Name</span> <span class="hljs-string">"Rsat.ActiveDirectory.DS-LDS.Tools~~~~0.0.1.0"</span>
+</div></code></pre>
+<ul>
+<li>Sur un serveur Windows (pour le rôle et les outils) :</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-built_in">Install-WindowsFeature</span> AD<span class="hljs-literal">-Domain</span><span class="hljs-literal">-Services</span> <span class="hljs-literal">-IncludeManagementTools</span>
+<span class="hljs-built_in">Install-WindowsFeature</span> RSAT<span class="hljs-literal">-AD</span><span class="hljs-literal">-PowerShell</span>      <span class="hljs-comment"># installe le module ActiveDirectory</span>
+<span class="hljs-built_in">Import-Module</span> ActiveDirectory
+<span class="hljs-built_in">Import-Module</span> ADDSDeployment
+</div></code></pre>
+<h3 id="installation-du-r%C3%B4le-ad-ds-et-promotion-en-contr%C3%B4leur-de-domaine">Installation du rôle AD DS et promotion en contrôleur de domaine</h3>
+<p>On peut passer par l'interface graphique ou PowerShell. La méthode PowerShell est reproductible et pratique pour les labs.</p>
+<ol>
+<li>Installer le rôle AD DS :</li>
+</ol>
+<pre class="hljs"><code><div><span class="hljs-comment"># Installer le rôle et les outils</span>
+<span class="hljs-built_in">Install-WindowsFeature</span> AD<span class="hljs-literal">-Domain</span><span class="hljs-literal">-Services</span> <span class="hljs-literal">-IncludeManagementTools</span>
+<span class="hljs-built_in">Import-Module</span> ADDSDeployment
+</div></code></pre>
+<ol start="2">
+<li>Promotion — deux cas : création d'une nouvelle forêt (premier DC) ou ajout d'un DC à un domaine existant.</li>
+</ol>
+<p>Cas A — Création d'une nouvelle forêt (premier DC) :</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Exemple : nouvelle forêt "entreprise.local"</span>
+<span class="hljs-built_in">Install-ADDSForest</span> <span class="hljs-literal">-DomainName</span> <span class="hljs-string">"entreprise.local"</span> <span class="hljs-literal">-DomainNetbiosName</span> <span class="hljs-string">"ENTREPRISE"</span> <span class="hljs-literal">-InstallDNS</span> <span class="hljs-literal">-SafeModeAdministratorPassword</span> (<span class="hljs-built_in">Read-Host</span> <span class="hljs-literal">-AsSecureString</span> <span class="hljs-string">"Mot de passe DSRM"</span>)
+</div></code></pre>
+<p>Cas B — Ajouter un contrôleur de domaine à un domaine existant :</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Exemple : joindre et promouvoir en DC additionnel</span>
+<span class="hljs-variable">$cred</span> = <span class="hljs-built_in">Get-Credential</span>    <span class="hljs-comment"># compte d'un administrateur de domaine</span>
+<span class="hljs-built_in">Install-ADDSDomainController</span> <span class="hljs-literal">-Credential</span> <span class="hljs-variable">$cred</span> <span class="hljs-literal">-DomainName</span> <span class="hljs-string">"entreprise.local"</span> <span class="hljs-literal">-InstallDns</span> <span class="hljs-literal">-SafeModeAdministratorPassword</span> (<span class="hljs-built_in">Read-Host</span> <span class="hljs-literal">-AsSecureString</span> <span class="hljs-string">"Mot de passe DSRM"</span>)
+</div></code></pre>
+<p>Remarques : l'assistant graphique (Gestionnaire de serveur → Promouvoir ce serveur en contrôleur de domaine) propose les mêmes options — choix du niveau fonctionnel, installation DNS, GC et DSRM. Un redémarrage sera nécessaire.</p>
+<h3 id="post-installation-et-v%C3%A9rifications-de-base">Post-installation et vérifications de base</h3>
+<ul>
+<li>Vérifier la présence des enregistrements DNS (_msdcs, SRV, enregistrements A pour les DC).</li>
+<li>Exécuter ces contrôles :</li>
+</ul>
+<pre class="hljs"><code><div>dcdiag /v
+repadmin /replsummary
+<span class="hljs-built_in">Get-ADDomainController</span> <span class="hljs-literal">-Filter</span> * | Select Name,IPv4Address,Site,OperatingSystem
+</div></code></pre>
+<ul>
+<li>Tester LDAP/LDAPS (ldp.exe) et Kerberos (klist, journaux d'événements).</li>
+<li>Configurer les forwarders DNS et valider la réplication entre DCs.</li>
+</ul>
+<hr>
+<h2 id="d%C3%A9tails-techniques">Détails techniques</h2>
+<p>Ici on rentre un peu plus dans le technique pour comprendre comment fonctionne le systeme.</p>
+<h3 id="ldap">LDAP</h3>
+<ul>
+<li>LDAP (Lightweight Directory Access Protocol) est le protocole d'accès aux annuaires. Il permet de rechercher, lire et modifier les objets dans AD. Le schéma AD définit les classes d'objets (user, computer, group...) et leurs attributs (cn, sn, member, userPrincipalName...).</li>
+<li>Quand on écrit des scripts ou qu'on intègre des services, connaître les attributs (memberOf, objectGUID, sAMAccountName, userAccountControl) est indispensable.</li>
+</ul>
+<h3 id="kerberos--authentification-par-tickets">Kerberos — authentification par tickets</h3>
+<img src="./img/Capture6.png" alt="kerberos" width="100"/>
+<ul>
+<li>Kerberos est le protocole principal d'authentification dans AD. Lors d'une connexion, l'utilisateur obtient un TGT (Ticket Granting Ticket) du KDC (Key Distribution Center) qui tourne sur un DC, puis il reçoit des tickets de service pour accéder aux ressources.</li>
+<li>Point crucial : l'heure doit être synchronisée via NTP ; si la différence dépasse 5 minutes, Kerberos peut échouer.</li>
+</ul>
+<img src="./img/Capture7.png" alt="kerberos" width="500"/>
+<h3 id="dns-et-enregistrements-srv">DNS et enregistrements SRV</h3>
+<ul>
+<li>AD repose beaucoup sur DNS. Les enregistrements SRV et _msdcs servent à localiser les services (ex : _ldap._tcp.dc._msdcs.entreprise.local). Sans DNS correct, les machines ne trouvent pas les DC.</li>
+<li>Vérifiez que les zones DNS sont intégrées à AD si vous voulez la réplication automatique des enregistrements.</li>
+</ul>
+<h3 id="ntdsdit-journaux-et-architecture-de-stockage">NTDS.DIT, journaux et architecture de stockage</h3>
+<ul>
+<li>
+<p>NTDS.DIT est la base ESE qui contient tous les objets AD. Les fichiers de transaction (EDB.log) assurent l'intégrité et sont rejoués au démarrage.</p>
+</li>
+<li>
+<p>Emplacements clés :</p>
+<ul>
+<li>NTDS.DIT (base de données)</li>
+<li>EDB.chk (checkpoint)</li>
+<li>edbxxxxx.log (fichiers de transaction)</li>
+</ul>
+</li>
+<li>
+<p>Ne déplacez pas ces fichiers sans procédure et sauvegarde ; faites des sauvegardes System State régulières.</p>
+</li>
+</ul>
+<h3 id="sysvol-et-netlogon">SYSVOL et NETLOGON</h3>
+<ul>
+<li>Le dossier SYSVOL contient les scripts de démarrage, les définitions de GPO et autres éléments pour les clients. Depuis Windows Server 2008, SYSVOL est souvent répliqué via DFSR plutôt que FRS.</li>
+<li>Le partage NETLOGON publie les scripts d'ouverture de session et les enregistrements nécessaires à la découverte des DC.</li>
+</ul>
+<pre class="hljs"><code><div>https://www.it-connect.fr/chapitres/le-partage-sysvol-et-la-replication/
+</div></code></pre>
+<h3 id="global-catalog-catalogue-global">Global Catalog (Catalogue global)</h3>
+<ul>
+<li>Le Global Catalog (GC) contient une copie partielle de tous les objets de la forêt (les attributs fréquemment recherchés) et permet les recherches cross-domaines et l'authentification universelle.</li>
+<li>Le GC est indispensable si vous avez plusieurs domaines dans une forêt ou utilisez des comptes universal.</li>
+</ul>
+<h3 id="comptes-et-jetons-dacc%C3%A8s-token">Comptes et jetons d'accès (Token)</h3>
+<ul>
+<li>Quand un utilisateur s'authentifie, son token (liste des SIDs des groupes) est créé. Les changements d'appartenance n'apparaissent dans le token qu'après une nouvelle connexion (ou <code>klist purge</code>/<code>logoff</code>).</li>
+</ul>
+<h3 id="rid-pool-rid-et-r%C3%B4le-rid-master">RID, Pool RID et rôle RID Master</h3>
+<ul>
+<li>Le RID Master fournit aux DC des pools de RID (Relative Identifier) combinés avec le SID du domaine pour créer des SIDs d'objets uniques.</li>
+<li>Si le RID Master est indisponible trop longtemps, la création d'objets peut échouer partout ailleurs.</li>
+</ul>
+<h3 id="r%C3%A9plication--kcc-partenaires-topologie">Réplication — KCC, partenaires, topologie</h3>
+<ul>
+<li>KCC (Knowledge Consistency Checker) calcule automatiquement la topologie de réplication intra-site.</li>
+<li>Protocoles : RPC par défaut pour intra-site, et RPC/SMTP (rare) pour inter-site. Depuis 2003, on peut configurer RPC sur TCP.</li>
+<li>Concepts clés : USN, Invocation ID, Lingering Objects, Tombstone Lifetime.</li>
+</ul>
+<h3 id="tombstone-garbage-collection-et-autorit%C3%A9-de-restauration">Tombstone, Garbage Collection et autorité de restauration</h3>
+<ul>
+<li>Quand on supprime un objet, il devient une &quot;tombstone&quot; et reste récupérable pendant la &quot;tombstone lifetime&quot;. Après, il est purgé.</li>
+<li>Restauration :
+<ul>
+<li>Non-autoritaire : restaurer System State et laisser la réplication faire le reste.</li>
+<li>Autoritaire : utile si on veut forcer la version restaurée ; on utilise <code>ntdsutil</code> puis on laisse répliquer.</li>
+</ul>
+</li>
+</ul>
+<h3 id="s%C3%A9curit%C3%A9-des-communications--ldaps-et-ldaps">Sécurité des communications — LDAPs et LDAPS</h3>
+<ul>
+<li>Pour chiffrer LDAP, activez LDAPS (LDAPS over SSL/TLS) via certificats (AD CS ou PKI externe). Assurez-vous d'avoir des certificats valides et le port 636 accessible.</li>
+</ul>
+<h3 id="horloge-et-kerberos-w32time">Horloge et Kerberos (W32Time)</h3>
+<ul>
+<li>Le PDC Emulator doit être la source de temps pour la forêt/domaine et se synchroniser sur une source NTP fiable. Si l'heure est désynchronisée, Kerberos casse.</li>
+</ul>
+<h2 id="annexes--exemples-de-scripts-et-aides-pratiques">Annexes — exemples de scripts et aides pratiques</h2>
+<h3 id="script--rapport-sant%C3%A9-ad-exemple-simple">Script : rapport santé AD (exemple simple)</h3>
+<pre class="hljs"><code><div><span class="hljs-comment"># HealthCheck-AD.ps1</span>
+<span class="hljs-built_in">Import-Module</span> ActiveDirectory
+<span class="hljs-built_in">Write-Host</span> <span class="hljs-string">"=== DC list ==="</span>
+<span class="hljs-built_in">Get-ADDomainController</span> <span class="hljs-literal">-Filter</span> * | Select Name,Site,IPv4Address
+<span class="hljs-built_in">Write-Host</span> <span class="hljs-string">"\n=== DCDiag summary ==="</span>
+dcdiag /v | <span class="hljs-built_in">Out-Host</span>
+<span class="hljs-built_in">Write-Host</span> <span class="hljs-string">"\n=== Replication summary ==="</span>
+repadmin /replsummary | <span class="hljs-built_in">Out-Host</span>
+</div></code></pre>
+<h3 id="script--provisionnement-basique-ou--utilisateur--groupe">Script : provisionnement basique (OU + utilisateur + groupe)</h3>
+<pre class="hljs"><code><div><span class="hljs-built_in">Import-Module</span> ActiveDirectory
+<span class="hljs-built_in">New-ADOrganizationalUnit</span> <span class="hljs-literal">-Name</span> <span class="hljs-string">"Informatique"</span> <span class="hljs-literal">-Path</span> <span class="hljs-string">"DC=entreprise,DC=local"</span>
+<span class="hljs-built_in">New-ADGroup</span> <span class="hljs-literal">-Name</span> <span class="hljs-string">"IT-Admins"</span> <span class="hljs-literal">-GroupScope</span> Global <span class="hljs-literal">-Path</span> <span class="hljs-string">"OU=Informatique,DC=entreprise,DC=local"</span>
+<span class="hljs-built_in">New-ADUser</span> <span class="hljs-literal">-Name</span> <span class="hljs-string">"Alice Admin"</span> <span class="hljs-literal">-SamAccountName</span> aadmin <span class="hljs-literal">-UserPrincipalName</span> aadmin@entreprise.local <span class="hljs-literal">-Path</span> <span class="hljs-string">"OU=Informatique,DC=entreprise,DC=local"</span> <span class="hljs-literal">-AccountPassword</span> (<span class="hljs-built_in">ConvertTo-SecureString</span> <span class="hljs-string">"P@ssw0rd!"</span> <span class="hljs-literal">-AsPlainText</span> <span class="hljs-literal">-Force</span>) <span class="hljs-literal">-Enabled</span> <span class="hljs-variable">$true</span>
+<span class="hljs-built_in">Add-ADGroupMember</span> <span class="hljs-literal">-Identity</span> <span class="hljs-string">"IT-Admins"</span> <span class="hljs-literal">-Members</span> aadmin
+</div></code></pre>
+<h3 id="promotion-du-serveur-en-contr%C3%B4leur-de-domaine-dc">Promotion du serveur en Contrôleur de Domaine (DC)</h3>
+<p>Après l'installation du rôle AD DS, il faut promouvoir le serveur en contrôleur de domaine. Deux méthodes : GUI ou PowerShell.</p>
+<h4 id="m%C3%A9thode-graphique">Méthode graphique</h4>
+<ol>
+<li>Dans le Gestionnaire de serveur, cliquez sur &quot;Promouvoir ce serveur en contrôleur de domaine&quot;.</li>
+<li>Choisissez &quot;Ajouter une nouvelle forêt&quot; si c'est le premier DC, et renseignez le nom DNS (ex. entreprise.local).</li>
+<li>Sélectionnez le niveau fonctionnel de la forêt et du domaine (Windows Server 2016/2019/2022 selon le besoin).</li>
+<li>Cochez &quot;Serveur DNS&quot; et &quot;Catalogue global (GC)&quot; si nécessaire.</li>
+<li>Définissez le mot de passe DSRM.</li>
+<li>Vérifiez les prérequis et redémarrez quand l'assistant le demande.</li>
+</ol>
+<h4 id="m%C3%A9thode-powershell-rapide-et-reproductible">Méthode PowerShell (rapide et reproductible)</h4>
+<ol>
+<li>Ouvrir PowerShell en admin.</li>
+<li>Installer le rôle AD DS :</li>
+</ol>
+<pre class="hljs"><code><div><span class="hljs-built_in">Install-WindowsFeature</span> AD<span class="hljs-literal">-Domain</span><span class="hljs-literal">-Services</span> <span class="hljs-literal">-IncludeManagementTools</span>
+</div></code></pre>
+<ol start="3">
+<li>Promouvoir le serveur (nouvelle forêt) :</li>
+</ol>
+<pre class="hljs"><code><div><span class="hljs-built_in">Import-Module</span> ADDSDeployment
+<span class="hljs-built_in">Install-ADDSForest</span> <span class="hljs-literal">-DomainName</span> <span class="hljs-string">"entreprise.local"</span> <span class="hljs-literal">-InstallDNS</span> <span class="hljs-literal">-DomainNetbiosName</span> <span class="hljs-string">"ENTREPRISE"</span> <span class="hljs-literal">-SafeModeAdministratorPassword</span> (<span class="hljs-built_in">Read-Host</span> <span class="hljs-literal">-AsSecureString</span> <span class="hljs-string">"Password DSRM"</span>)
+</div></code></pre>
+<ol start="4">
+<li>Redémarrer si nécessaire.</li>
+</ol>
+<p>Remarques : assurez-vous d'avoir une IP statique avant la promotion. Le serveur doit utiliser comme DNS principal lui-même (127.0.0.1 ou son IP) et en secondaire un forwarder interne/externe.</p>
+<h2 id="post-installation-et-v%C3%A9rifications-de-base">Post-installation et vérifications de base</h2>
+<ul>
+<li>Vérifiez que le service DNS fonctionne et que la zone (ex. entreprise.local) contient <em>msdcs</em>, SRV et enregistrements A des DC.</li>
+<li>Commandes utiles :</li>
+</ul>
+<pre class="hljs"><code><div>dcdiag /v
+repadmin /replsummary
+<span class="hljs-built_in">Get-ADDomainController</span> <span class="hljs-literal">-Filter</span> * | Select Name,IPv4Address,OperatingSystem
+</div></code></pre>
+<ul>
+<li>Testez LDAP/Kerberos (ldp.exe, klist) et l'accès utilisateur.</li>
+</ul>
+<h2 id="gestion-quotidienne-cr%C3%A9ation-et-administration-des-objets">Gestion quotidienne (création et administration des objets)</h2>
+<h3 id="utilisateurs-et-groupes">Utilisateurs et Groupes</h3>
+<p>Créer un utilisateur avec PowerShell :</p>
+<pre class="hljs"><code><div><span class="hljs-built_in">New-ADUser</span> <span class="hljs-literal">-Name</span> <span class="hljs-string">"Jean Dupont"</span> <span class="hljs-literal">-GivenName</span> Jean <span class="hljs-literal">-Surname</span> Dupont <span class="hljs-literal">-SamAccountName</span> jdupont <span class="hljs-literal">-UserPrincipalName</span> jdupont@entreprise.local <span class="hljs-literal">-AccountPassword</span> (<span class="hljs-built_in">Read-Host</span> <span class="hljs-literal">-AsSecureString</span> <span class="hljs-string">"Mot de passe"</span>) <span class="hljs-literal">-Enabled</span> <span class="hljs-variable">$true</span>
+</div></code></pre>
+<p>Groupes : privilégiez les groupes de sécurité pour les permissions et les groupes de distribution pour la messagerie. On va aussi dire : faites attention au nesting.</p>
+<h3 id="unit%C3%A9s-organisationnelles-ou-et-d%C3%A9l%C3%A9gation">Unités Organisationnelles (OU) et délégation</h3>
+<ul>
+<li>Organisez par OU (ex : OU=Users, OU=Computers, OU=Service, OU=Admins).</li>
+<li>Déléguez via l'assistant Delegation of Control pour limiter les droits d'admin.</li>
+</ul>
+<h3 id="gpo-group-policy-objects">GPO (Group Policy Objects)</h3>
+<ul>
+<li>Utilisez GPMC pour créer, lier et filtrer les GPO.</li>
+<li>Bonnes pratiques :
+<ul>
+<li>Liez les GPO au niveau des OU pour réduire l'impact.</li>
+<li>Nommez explicitement vos GPO (ex : &quot;GPO-PasswordPolicy-2025&quot;).</li>
+<li>Testez avec &quot;Group Policy Modeling&quot; et &quot;Group Policy Results&quot;.</li>
+</ul>
+</li>
+</ul>
+<p>Exemples :</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Forcer l'application d'une GPO</span>
+gpupdate /force
+
+<span class="hljs-comment"># Résultat des GPO pour un utilisateur/ordinateur</span>
+gpresult /r
+</div></code></pre>
+<h3 id="joindre-un-poste-au-domaine">Joindre un poste au domaine</h3>
+<ul>
+<li>Sur le poste : Panneau de configuration &gt; Système &gt; Modifier les paramètres &gt; Changer &gt; Domain et saisissez <code>entreprise.local</code>.</li>
+<li>Avec PowerShell (admin local) :</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-built_in">Add-Computer</span> <span class="hljs-literal">-DomainName</span> <span class="hljs-string">"entreprise.local"</span> <span class="hljs-literal">-Credential</span> (<span class="hljs-built_in">Get-Credential</span>) <span class="hljs-literal">-Restart</span>
+</div></code></pre>
+<h3 id="comptes-de-service">Comptes de service</h3>
+<ul>
+<li>Préférez les Managed Service Accounts (gMSA) pour éviter de gérer des mots de passe manuellement.</li>
+</ul>
+<p>Création d'un gMSA :</p>
+<pre class="hljs"><code><div><span class="hljs-built_in">New-ADServiceAccount</span> <span class="hljs-literal">-Name</span> <span class="hljs-string">"svc_sql_gmsa"</span> <span class="hljs-literal">-DNSHostName</span> <span class="hljs-string">"entreprise.local"</span> <span class="hljs-literal">-PrincipalsAllowedToRetrieveManagedPassword</span> <span class="hljs-string">"SQLServersGroup"</span>
+<span class="hljs-built_in">Install-ADServiceAccount</span> <span class="hljs-literal">-Identity</span> svc_sql_gmsa
+</div></code></pre>
+<h2 id="sauvegarde-et-restauration">Sauvegarde et restauration</h2>
+<ul>
+<li>Sauvegardez l'état système (System State) sur chaque DC avec Windows Server Backup.</li>
+<li>Restauration : non-autoritaire (laisser répliquer) ou autoritaire (<code>ntdsutil</code>) selon le besoin.</li>
+</ul>
+<p>Exemple de sauvegarde système :</p>
+<pre class="hljs"><code><div>wbadmin start systemstatebackup <span class="hljs-literal">-backuptarget</span>:D:\ <span class="hljs-literal">-quiet</span>
+</div></code></pre>
+<h2 id="r%C3%A9plication-active-directory">Réplication Active Directory</h2>
+<h3 id="concepts-cl%C3%A9s">Concepts clés</h3>
+<ul>
+<li>Réplication intra-site : fréquente et rapide.</li>
+<li>Réplication inter-site : planifiée, optimisée pour liens lents.</li>
+<li>KCC calcule la topologie intra-site.</li>
+<li>Bridgehead servers : points d'entrée pour la réplication inter-site.</li>
+</ul>
+<h3 id="sites-et-sous-r%C3%A9seaux">Sites et sous-réseaux</h3>
+<ul>
+<li>Définissez vos Sites dans &quot;Active Directory Sites and Services&quot; et associez les sous-réseaux IP (ex : 192.168.10.0/24).</li>
+<li>Configurez les site links : coûts, horaires et intervalles.</li>
+</ul>
+<h3 id="outils-de-diagnostic-et-commandes-utiles">Outils de diagnostic et commandes utiles</h3>
+<ul>
+<li><code>repadmin /replsummary</code> : résumé de la réplication.</li>
+<li><code>repadmin /showrepl &lt;DCName&gt;</code> : détail des partenaires.</li>
+<li><code>repadmin /syncall &lt;DCName&gt; /A /e /P</code> : forcer la sync.</li>
+<li><code>dcdiag /v</code> : tests santé du DC.</li>
+<li><code>nltest /dsgetdc:entreprise.local</code> : localiser un DC.</li>
+</ul>
+<h3 id="d%C3%A9lai-et-param%C3%A8tres">Délai et paramètres</h3>
+<ul>
+<li>Les intervalles inter-site sont en minutes par défaut et ajustables.</li>
+<li>N'augmentez pas trop la fréquence sur des liens à faible bande passante.</li>
+</ul>
+<h3 id="gestion-des-conflits-et-objets-supprim%C3%A9s">Gestion des conflits et objets supprimés</h3>
+<ul>
+<li>AD utilise USN et timestamps pour résoudre les conflits.</li>
+<li>&quot;Tombstone lifetime&quot; : période pendant laquelle un objet supprimé est récupérable.</li>
+</ul>
+<h2 id="fsmo-flexible-single-master-operations">FSMO (Flexible Single Master Operations)</h2>
+<ul>
+<li>Rôles : Schema Master, Domain Naming Master, RID Master, PDC Emulator, Infrastructure Master.</li>
+<li>Vérifier détenteurs :</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-built_in">Get-ADForest</span> | <span class="hljs-built_in">Format-List</span> SchemaMaster,DomainNamingMaster
+<span class="hljs-built_in">Get-ADDomain</span> | <span class="hljs-built_in">Format-List</span> PDCEmulator,RIDMaster,InfrastructureMaster
+</div></code></pre>
+<ul>
+<li>Déplacer un rôle : <code>Move-ADDirectoryServerOperationMasterRole</code>.</li>
+</ul>
+<h2 id="int%C3%A9gration-doutils-et-services-courants">Intégration d'outils et services courants</h2>
+<ul>
+<li>RSAT : installez sur les postes d'administration pour obtenir ADUC, AD Sites and Services, GPMC.</li>
+<li>PowerShell ActiveDirectory module pour l'automatisation.</li>
+<li>DCDiag, Repadmin, Event Viewer pour le diagnostic.</li>
+<li>Windows Admin Center pour une console web.</li>
+<li>DHCP : autoriser le serveur DHCP dans AD avant distribution.</li>
+<li>PKI / AD CS pour intégrer des certificats (Smartcard, VPN, LDAPS).</li>
+<li>NPS pour RADIUS.</li>
+<li>DFS pour espaces de noms partagés et réplication.</li>
+</ul>
+<h3 id="exemples-rapides-dutilisation-doutils">Exemples rapides d'utilisation d'outils</h3>
+<pre class="hljs"><code><div><span class="hljs-comment"># Lister tous les contrôleurs</span>
+<span class="hljs-built_in">Get-ADDomainController</span> <span class="hljs-literal">-Filter</span> * | Select Name,Site,IPv4Address
+
+<span class="hljs-comment"># Vérifier la réplication</span>
+repadmin /replsummary
+
+<span class="hljs-comment"># Tester la santé d'un DC</span>
+dcdiag /s:MonDC
+</div></code></pre>
+<h2 id="s%C3%A9curit%C3%A9-et-bonnes-pratiques">Sécurité et bonnes pratiques</h2>
+<ul>
+<li>Séparez les comptes d'administration (usage quotidien vs admin global).</li>
+<li>Limitez les membres de <code>Domain Admins</code> et <code>Enterprise Admins</code>.</li>
+<li>Activez la journalisation et surveillez événements critiques (4625, 4740...).</li>
+<li>Synchronisation horaire : PDC Emulator sur une source externe fiable.</li>
+<li>Utilisez LAPS pour gérer les mots de passe locaux.</li>
+<li>Appliquez des politiques de mot de passe robustes et MFA pour l'accès admin.</li>
+</ul>
+<h2 id="checklist-de-mise-en-production">Checklist de mise en production</h2>
+<h2 id="checklist-de-mise-en-production">Checklist de mise en production</h2>
+<table>
+<thead>
+<tr>
+<th>Élément à vérifier</th>
+<th>Détails / Statut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1. IP statique et nom d'hôte configurés</strong></td>
+<td>Vérifier que chaque DC possède une IP fixe et un nom d’hôte cohérent (ex : <code>dc1-entreprise</code>).</td>
+</tr>
+<tr>
+<td><strong>2. DNS interne configuré et vérifié</strong></td>
+<td>Le serveur DNS doit résoudre le domaine interne (<code>entreprise.local</code>) et les enregistrements SRV (_msdcs). Tester avec <code>nslookup</code>.</td>
+</tr>
+<tr>
+<td><strong>3. Au moins deux contrôleurs de domaine pour la redondance</strong></td>
+<td>S’assurer qu’un second DC est opérationnel et que la réplication fonctionne (<code>repadmin /replsummary</code>).</td>
+</tr>
+<tr>
+<td><strong>4. Plan de sauvegarde System State et tests de restauration</strong></td>
+<td>Planifier des sauvegardes régulières avec <code>wbadmin</code> et tester une restauration sur un DC de test.</td>
+</tr>
+<tr>
+<td><strong>5. Sites &amp; Services configurés avec sous-réseaux corrects</strong></td>
+<td>Créer les sites AD selon la topologie réseau et associer chaque sous-réseau au bon site.</td>
+</tr>
+<tr>
+<td><strong>6. FSMO roles documentés et plans de transfert</strong></td>
+<td>Identifier les rôles FSMO (<code>Get-ADForest</code>, <code>Get-ADDomain</code>) et documenter leur emplacement et procédure de bascule.</td>
+</tr>
+<tr>
+<td><strong>7. GPOs testés en pré-production</strong></td>
+<td>Vérifier les GPO avec <code>gpresult</code> / <code>Group Policy Modeling</code> avant déploiement global.</td>
+</tr>
+<tr>
+<td><strong>8. Processus de délégation et comptes de service (gMSA) en place</strong></td>
+<td>Mettre en place la délégation via les OU et utiliser des comptes gMSA pour les services critiques.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="r%C3%A9solution-de-probl%C3%A8mes-courants">Résolution de problèmes courants</h2>
+<ul>
+<li>Problème : réplication échoue. Actions : vérifier réseau, DNS, <code>repadmin /showrepl</code>, <code>dcdiag</code>, l'heure système.</li>
+<li>Problème : utilisateur ne peut pas s'authentifier. Actions : vérifier appartenance au domaine, état du compte, verrouillage, <code>nltest</code>, Kerberos et DNS.</li>
+</ul>
+<h2 id="annexes--commandes-utiles">Annexes — commandes utiles</h2>
+<ul>
+<li><code>Get-ADUser -Filter *</code> : lister les utilisateurs.</li>
+<li><code>Get-ADGroupMember -Identity &quot;GroupeNom&quot;</code> : lister membres d'un groupe.</li>
+<li><code>Move-ADDirectoryServerOperationMasterRole -Identity &quot;TargetDC&quot; -OperationMasterRole PDCEmulator</code> : déplacer un rôle FSMO.</li>
+</ul>
+<h2 id="introduction">Introduction</h2>
+<h4 id="active-directory-ad"><em>Active Directory (AD)</em></h4>
+<p><img src="./img/Capture3.PNG" alt="alt text"></p>
+<p>Active Directory, c'est le service d'annuaire signé Microsoft. Il centralise tout : utilisateurs, postes, groupes et ressources (imprimantes, partages, etc.). On y retrouve l'ensemble des objets du réseau stockés dans une base hiérarchique — pratique pour gérer les droits et l'accès.</p>
+<p>Concrètement, AD sert à :</p>
+<ul>
+<li>gérer les comptes et leurs droits d'accès,</li>
+<li>authentifier les utilisateurs lors de leurs connexions,</li>
+<li>appliquer des politiques de sécurité à l'échelle d'un domaine,</li>
+<li>organiser les ressources de l'entreprise de façon logique.</li>
+</ul>
+<p>En une phrase : AD, c'est le cœur de l'admin réseau Windows — il gère identités, accès et sécurité. C’est simple, mais essentiel.</p>
+<h4 id="domaine-active-directory"><em>Domaine Active Directory</em></h4>
+<p>Un domaine est l'unité de base d'Active Directory. Il rassemble des objets (utilisateurs, ordinateurs, groupes...) qui partagent la même base et les mêmes politiques.</p>
+<p>Chaque domaine possède :</p>
+<ul>
+<li>un nom unique (par exemple : entreprise.local),</li>
+<li>un ou plusieurs contrôleurs de domaine (Domain Controllers) qui stockent et répliquent les données.</li>
+</ul>
+<p>Les domaines peuvent être reliés entre eux pour former une forêt (voir plus bas).</p>
+<h4 id="for%C3%AAt-et-arbre-active-directory"><em>Forêt et Arbre Active Directory</em></h4>
+<p>Un arbre est un ensemble de domaines liés hiérarchiquement, partageant un espace de noms DNS. Une forêt regroupe un ou plusieurs arbres et partage le schéma, le catalogue global et les relations d'approbation (trusts).</p>
+<p>La forêt est donc l'unité logique la plus haute dans AD.</p>
+<p><img src="./img/Capture4.PNG" alt="alt text">
+<em>schema represenstatif des forets et domaines</em></p>
+<h4 id="contr%C3%B4leur-de-domaine-domain-controller"><em>Contrôleur de Domaine (Domain Controller)</em></h4>
+<p>Le contrôleur de domaine (DC) est le serveur principal d'un domaine AD. Il héberge la base NTDS.DIT et prend en charge :</p>
+<ul>
+<li>l'authentification (Kerberos/NTLM),</li>
+<li>la réplication vers les autres DC,</li>
+<li>la gestion des stratégies de sécurité.</li>
+</ul>
+<p>Sans DC, AD ne fonctionne pas. Point final.</p>
+<h4 id="unit%C3%A9-organisationnelle-ou-%E2%80%93-organizational-unit"><em>Unité Organisationnelle (OU – Organizational Unit)</em></h4>
+<p>L'OU est un conteneur logique pour organiser les objets. On s'en sert pour regrouper par service, déléguer l'administration ou appliquer des GPO sur des ensembles précis.</p>
+<h4 id="objets-active-directory"><em>Objets Active Directory</em></h4>
+<p>Les objets sont les éléments gérés : chaque objet a des attributs (nom, mot de passe, mail...) et une catégorie.</p>
+<p>Objets principaux :</p>
+<ul>
+<li>Utilisateur : compte humain ou de service.</li>
+<li>Groupe : ensemble d'utilisateurs pour appliquer des droits.</li>
+<li>Ordinateur : machine jointe au domaine.</li>
+<li>Imprimante, partage réseau, etc.</li>
+</ul>
+<h4 id="base-de-donn%C3%A9es-active-directory-ntdsdit"><em>Base de Données Active Directory (NTDS.DIT)</em></h4>
+<p>La base principale est le fichier NTDS.DIT, stocké sur le DC. Il contient :</p>
+<ul>
+<li>les objets du domaine,</li>
+<li>leurs attributs,</li>
+<li>les informations de sécurité et de réplication.</li>
+</ul>
+<p>Ce fichier est mis à jour en continu et répliqué entre DC.</p>
+<p>Pour des détails sur LDAP, référez-vous à la section &quot;Détails techniques&quot;.</p>
+<h4 id="dn-distinguished-name"><em>DN (Distinguished Name)</em></h4>
+<p>Le DN est le nom unique d'un objet dans LDAP/AD. Il renseigne sa position dans l'arborescence.</p>
+<pre class="hljs"><code><div>CN=Jean Dupont,OU=Informatique,DC=entreprise,DC=local
+</div></code></pre>
+<table>
+<thead>
+<tr>
+<th>Abréviation</th>
+<th>Signification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CN</td>
+<td>Common Name (nom de l’objet)</td>
+</tr>
+<tr>
+<td>OU</td>
+<td>Organizational Unit</td>
+</tr>
+<tr>
+<td>DC</td>
+<td>Domain Component</td>
+</tr>
+</tbody>
+</table>
+<h4 id="gpo-group-policy-object"><em>GPO (Group Policy Object)</em></h4>
+<p>Les GPO sont des règles de configuration. Elles permettent de gérer et sécuriser automatiquement postes et utilisateurs (ex : politique de mot de passe, fond d'écran, désactivation de services...).</p>
+<p>Pour une explication complète de Kerberos (TGT, KDC, tickets), voir la section &quot;Détails techniques&quot;.</p>
+<p>Pour la réplication (KCC, sites, inter-site), voir la section correspondante plus bas.</p>
+<h2 id="fonctionnement-dactive-directory">Fonctionnement d'Active Directory</h2>
+<h3 id="mise-en-place-dactive-directory">Mise en place d'Active Directory</h3>
+<hr>
+<p>Contexte : on part du déploiement d'un DC Windows Server (ex. Windows Server 2022) — souvent dans une VM (Proxmox, ESXi, Hyper-V). Cette section détaille les prérequis, l'installation du rôle AD DS, la promotion en DC et les outils d'administration (PowerShell / RSAT).</p>
+<p><img src="./img/Capture1.PNG" alt="alt text"></p>
+<h3 id="pr%C3%A9requis">Prérequis</h3>
+<ul>
+<li>Matériel recommandé (DC de test / petit site) : 2 vCPU, 4 Go RAM, disque 40 Go — adaptez en production selon la charge.</li>
+<li>OS : Windows Server 2016, 2019 ou 2022 (choisir le niveau fonctionnel adapté).</li>
+</ul>
+<p>Réseau :</p>
+<ul>
+<li>Adresse IP statique sur le serveur (éviter DHCP pour un DC).</li>
+<li>Nom d'hôte unique lisible (ex : dc1-entreprise).</li>
+<li>DNS : le serveur doit résoudre son propre nom et les enregistrements SRV du domaine. En pratique, mettez comme DNS principal l'IP fixe du DC (ou 127.0.0.1 quand on sait ce qu'on fait) et configurez des forwarders vers des DNS publics ou internes.</li>
+<li>Horloge : NTP synchronisé (un décalage &gt;5 min casse Kerberos).</li>
+</ul>
+<p>Comptes et permissions :</p>
+<ul>
+<li>Compte local admin pour l'installation.</li>
+<li>Compte de domaine avec droits suffisants si on ajoute un DC à un domaine existant.</li>
+</ul>
+<h3 id="installation">Installation</h3>
+<p>Pour demarer l'installation il vous faudra vous demarer et vous connecter sur le serveur Windows lui et assigner une @IP statique.</p>
+<p>1- Ouvrez le gestionnaire de serveur</p>
+<img src="./img/Capture2.png" alt="kerberos" width="300"/>
+<p><em>Le Gestionnaire de serveur est natif a Windows Server, celui-ci permet de gerer et configurer les fonctionnalité du systeme (AD, DNS, DHCP...), ainsi que de superviser l'état general du serveur</em></p>
+<p>2 - Cliquez sur ajouter des roles et fonctionnalitées</p>
+<p>3 - Selectionnez <em><strong>Installation basée sur un rôle ou une fonctionnalité</strong></em></p>
+<p>4 - J'ai selectionnez <strong>serveur local</strong></p>
+<p>5 - Cochez le service <strong>services AD DS</strong> pour installer le role Active Directory</p>
+<img src="./img/Capture8.png" alt="kerberos" width="600"/>
+<p><em>Ici on a deja les roles et groupes par defaut</em></p>
+<p>Il vous faudra ajoutez le role <em><strong>Active Directory Domain Services (AD DS)</strong></em> pour faire de ce serveur le controleur de domaine</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="./img/Capture9.png" alt="kerberos" width="600"/></td>
+<td><img src="./img/Capture10.png" alt="kerberos" width="600"/></td>
+</tr>
+<tr>
+<td><img src="./img/Capture11.png" alt="kerberos" width="600"/></td>
+<td><img src="./img/Capture12.png" alt="kerberos" width="600"/></td>
+</tr>
+<tr>
+<td><img src="./img/Capture13.png" alt="kerberos" width="600"/></td>
+<td><img src="./img/Capture14.png" alt="kerberos" width="600"/></td>
+</tr>
+</tbody>
+</table>
+<h3 id="modules-et-outils-dadministration-rsat--powershell">Modules et outils d'administration (RSAT / PowerShell)</h3>
+<ul>
+<li>Sur le serveur : l'installation du rôle AD DS installe généralement les outils d'administration. Modules PowerShell utiles : <code>ActiveDirectory</code> (Get-ADUser, New-ADUser...), <code>ADDSDeployment</code> (Install-ADDSForest...), <code>DnsServer</code> si besoin.</li>
+<li>Sur un poste Windows 10/11 : installez RSAT. Exemple PowerShell (Windows 10/11 modernes) :</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-comment"># Depuis une session PowerShell (admin) sur un poste Windows 10/11</span>
+<span class="hljs-built_in">Add-WindowsCapability</span> <span class="hljs-literal">-Online</span> <span class="hljs-literal">-Name</span> <span class="hljs-string">"Rsat.ActiveDirectory.DS-LDS.Tools~~~~0.0.1.0"</span>
+</div></code></pre>
+<ul>
+<li>Sur un serveur Windows (pour le rôle et les outils) :</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-built_in">Install-WindowsFeature</span> AD<span class="hljs-literal">-Domain</span><span class="hljs-literal">-Services</span> <span class="hljs-literal">-IncludeManagementTools</span>
+<span class="hljs-built_in">Install-WindowsFeature</span> RSAT<span class="hljs-literal">-AD</span><span class="hljs-literal">-PowerShell</span>      <span class="hljs-comment"># installe le module ActiveDirectory</span>
+<span class="hljs-built_in">Import-Module</span> ActiveDirectory
+<span class="hljs-built_in">Import-Module</span> ADDSDeployment
+</div></code></pre>
+<h3 id="installation-du-r%C3%B4le-ad-ds-et-promotion-en-contr%C3%B4leur-de-domaine">Installation du rôle AD DS et promotion en contrôleur de domaine</h3>
+<p>On peut passer par l'interface graphique ou PowerShell. La méthode PowerShell est reproductible et pratique pour les labs.</p>
+<ol>
+<li>Installer le rôle AD DS :</li>
+</ol>
+<pre class="hljs"><code><div><span class="hljs-comment"># Installer le rôle et les outils</span>
+<span class="hljs-built_in">Install-WindowsFeature</span> AD<span class="hljs-literal">-Domain</span><span class="hljs-literal">-Services</span> <span class="hljs-literal">-IncludeManagementTools</span>
+<span class="hljs-built_in">Import-Module</span> ADDSDeployment
+</div></code></pre>
+<ol start="2">
+<li>Promotion — deux cas : création d'une nouvelle forêt (premier DC) ou ajout d'un DC à un domaine existant.</li>
+</ol>
+<p>Cas A — Création d'une nouvelle forêt (premier DC) :</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Exemple : nouvelle forêt "entreprise.local"</span>
+<span class="hljs-built_in">Install-ADDSForest</span> <span class="hljs-literal">-DomainName</span> <span class="hljs-string">"entreprise.local"</span> <span class="hljs-literal">-DomainNetbiosName</span> <span class="hljs-string">"ENTREPRISE"</span> <span class="hljs-literal">-InstallDNS</span> <span class="hljs-literal">-SafeModeAdministratorPassword</span> (<span class="hljs-built_in">Read-Host</span> <span class="hljs-literal">-AsSecureString</span> <span class="hljs-string">"Mot de passe DSRM"</span>)
+</div></code></pre>
+<p>Cas B — Ajouter un contrôleur de domaine à un domaine existant :</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Exemple : joindre et promouvoir en DC additionnel</span>
+<span class="hljs-variable">$cred</span> = <span class="hljs-built_in">Get-Credential</span>    <span class="hljs-comment"># compte d'un administrateur de domaine</span>
+<span class="hljs-built_in">Install-ADDSDomainController</span> <span class="hljs-literal">-Credential</span> <span class="hljs-variable">$cred</span> <span class="hljs-literal">-DomainName</span> <span class="hljs-string">"entreprise.local"</span> <span class="hljs-literal">-InstallDns</span> <span class="hljs-literal">-SafeModeAdministratorPassword</span> (<span class="hljs-built_in">Read-Host</span> <span class="hljs-literal">-AsSecureString</span> <span class="hljs-string">"Mot de passe DSRM"</span>)
+</div></code></pre>
+<p>Remarques : l'assistant graphique (Gestionnaire de serveur → Promouvoir ce serveur en contrôleur de domaine) propose les mêmes options — choix du niveau fonctionnel, installation DNS, GC et DSRM. Un redémarrage sera nécessaire.</p>
+<h3 id="post-installation-et-v%C3%A9rifications-de-base">Post-installation et vérifications de base</h3>
+<ul>
+<li>Vérifier la présence des enregistrements DNS (_msdcs, SRV, enregistrements A pour les DC).</li>
+<li>Exécuter ces contrôles :</li>
+</ul>
+<pre class="hljs"><code><div>dcdiag /v
+repadmin /replsummary
+<span class="hljs-built_in">Get-ADDomainController</span> <span class="hljs-literal">-Filter</span> * | Select Name,IPv4Address,Site,OperatingSystem
+</div></code></pre>
+<ul>
+<li>Tester LDAP/LDAPS (ldp.exe) et Kerberos (klist, journaux d'événements).</li>
+<li>Configurer les forwarders DNS et valider la réplication entre DCs.</li>
+</ul>
+<hr>
+<p>Cette section fournit une procédure claire pour installer AD DS, promouvoir un DC et préparer les outils. Les exemples PowerShell sont pensés pour un lab ; adaptez mots de passe, noms DNS et options selon votre environnement.</p>
+<h5 id="compte">Compte</h5>
+<ul>
+<li>Il faudra un compte administrateur sur le serveur.</li>
+</ul>
+<h3 id="installation-mode-graphique">Installation (mode graphique)</h3>
+<ol>
+<li>Ouvrir le Gestionnaire de serveur :
+<img src="./img/Capture2.PNG" alt="alt text"></li>
+<li>Cliquer sur <strong>Ajouter des roles</strong>.</li>
+<li>Sélectionner &quot;Services de domaine Active Directory (AD DS)&quot; et suivre l'assistant.</li>
+</ol>
+<h2 id="d%C3%A9tails-techniques">Détails techniques</h2>
+<p>Ici on rentre un peu plus dans le technique pour comprendre ce qui se passe sous le capot.</p>
+<h3 id="ldap">LDAP</h3>
+<ul>
+<li>LDAP (Lightweight Directory Access Protocol) est le protocole d'accès aux annuaires. Il permet de rechercher, lire et modifier les objets dans AD. Le schéma AD définit les classes d'objets (user, computer, group...) et leurs attributs (cn, sn, member, userPrincipalName...).</li>
+<li>Quand on écrit des scripts ou qu'on intègre des services, connaître les attributs (memberOf, objectGUID, sAMAccountName, userAccountControl) est indispensable.</li>
+</ul>
+<h3 id="kerberos--authentification-par-tickets">Kerberos — authentification par tickets</h3>
+<img src="./img/Capture6.png" alt="kerberos" width="100"/>
+<ul>
+<li>Kerberos est le protocole principal d'authentification dans AD. Lors d'une connexion, l'utilisateur obtient un TGT (Ticket Granting Ticket) du KDC (Key Distribution Center) qui tourne sur un DC, puis il reçoit des tickets de service pour accéder aux ressources.</li>
+<li>Point crucial : l'heure doit être synchronisée via NTP ; si la différence dépasse 5 minutes, Kerberos peut échouer.</li>
+</ul>
+<img src="./img/Capture7.png" alt="kerberos" width="500"/>
+<h3 id="dns-et-enregistrements-srv">DNS et enregistrements SRV</h3>
+<ul>
+<li>AD repose beaucoup sur DNS. Les enregistrements SRV et _msdcs servent à localiser les services (ex : _ldap._tcp.dc._msdcs.entreprise.local). Sans DNS correct, les machines ne trouvent pas les DC.</li>
+<li>Vérifiez que les zones DNS sont intégrées à AD si vous voulez la réplication automatique des enregistrements.</li>
+</ul>
+<h3 id="ntdsdit-journaux-et-architecture-de-stockage">NTDS.DIT, journaux et architecture de stockage</h3>
+<ul>
+<li>
+<p>NTDS.DIT est la base ESE qui contient tous les objets AD. Les fichiers de transaction (EDB.log) assurent l'intégrité et sont rejoués au démarrage.</p>
+</li>
+<li>
+<p>Emplacements clés :</p>
+<ul>
+<li>NTDS.DIT (base de données)</li>
+<li>EDB.chk (checkpoint)</li>
+<li>edbxxxxx.log (fichiers de transaction)</li>
+</ul>
+</li>
+<li>
+<p>Ne déplacez pas ces fichiers sans procédure et sauvegarde ; faites des sauvegardes System State régulières.</p>
+</li>
+</ul>
+<h3 id="sysvol-et-netlogon">SYSVOL et NETLOGON</h3>
+<ul>
+<li>Le dossier SYSVOL contient les scripts de démarrage, les définitions de GPO et autres éléments pour les clients. Depuis Windows Server 2008, SYSVOL est souvent répliqué via DFSR plutôt que FRS.</li>
+<li>Le partage NETLOGON publie les scripts d'ouverture de session et les enregistrements nécessaires à la découverte des DC.</li>
+</ul>
+<pre class="hljs"><code><div>https://www.it-connect.fr/chapitres/le-partage-sysvol-et-la-replication/
+</div></code></pre>
+<h3 id="global-catalog-catalogue-global">Global Catalog (Catalogue global)</h3>
+<ul>
+<li>Le Global Catalog (GC) contient une copie partielle de tous les objets de la forêt (les attributs fréquemment recherchés) et permet les recherches cross-domaines et l'authentification universelle.</li>
+<li>Le GC est indispensable si vous avez plusieurs domaines dans une forêt ou utilisez des comptes universal.</li>
+</ul>
+<h3 id="comptes-et-jetons-dacc%C3%A8s-token">Comptes et jetons d'accès (Token)</h3>
+<ul>
+<li>Quand un utilisateur s'authentifie, son token (liste des SIDs des groupes) est créé. Les changements d'appartenance n'apparaissent dans le token qu'après une nouvelle connexion (ou <code>klist purge</code>/<code>logoff</code>).</li>
+</ul>
+<h3 id="rid-pool-rid-et-r%C3%B4le-rid-master">RID, Pool RID et rôle RID Master</h3>
+<ul>
+<li>Le RID Master fournit aux DC des pools de RID (Relative Identifier) combinés avec le SID du domaine pour créer des SIDs d'objets uniques.</li>
+<li>Si le RID Master est indisponible trop longtemps, la création d'objets peut échouer partout ailleurs.</li>
+</ul>
+<h3 id="r%C3%A9plication--kcc-partenaires-topologie">Réplication — KCC, partenaires, topologie</h3>
+<ul>
+<li>KCC (Knowledge Consistency Checker) calcule automatiquement la topologie de réplication intra-site.</li>
+<li>Protocoles : RPC par défaut pour intra-site, et RPC/SMTP (rare) pour inter-site. Depuis 2003, on peut configurer RPC sur TCP.</li>
+<li>Concepts clés : USN, Invocation ID, Lingering Objects, Tombstone Lifetime.</li>
+</ul>
+<h3 id="tombstone-garbage-collection-et-autorit%C3%A9-de-restauration">Tombstone, Garbage Collection et autorité de restauration</h3>
+<ul>
+<li>Quand on supprime un objet, il devient une &quot;tombstone&quot; et reste récupérable pendant la &quot;tombstone lifetime&quot;. Après, il est purgé.</li>
+<li>Restauration :
+<ul>
+<li>Non-autoritaire : restaurer System State et laisser la réplication faire le reste.</li>
+<li>Autoritaire : utile si on veut forcer la version restaurée ; on utilise <code>ntdsutil</code> puis on laisse répliquer.</li>
+</ul>
+</li>
+</ul>
+<h3 id="s%C3%A9curit%C3%A9-des-communications--ldaps-et-ldaps">Sécurité des communications — LDAPs et LDAPS</h3>
+<ul>
+<li>Pour chiffrer LDAP, activez LDAPS (LDAPS over SSL/TLS) via certificats (AD CS ou PKI externe). Assurez-vous d'avoir des certificats valides et le port 636 accessible.</li>
+</ul>
+<h3 id="horloge-et-kerberos-w32time">Horloge et Kerberos (W32Time)</h3>
+<ul>
+<li>Le PDC Emulator doit être la source de temps pour la forêt/domaine et se synchroniser sur une source NTP fiable. Si l'heure est désynchronisée, Kerberos casse.</li>
+</ul>
+<h2 id="annexes--exemples-de-scripts-et-aides-pratiques">Annexes — exemples de scripts et aides pratiques</h2>
+<h3 id="script--rapport-sant%C3%A9-ad-exemple-simple">Script : rapport santé AD (exemple simple)</h3>
+<pre class="hljs"><code><div><span class="hljs-comment"># HealthCheck-AD.ps1</span>
+<span class="hljs-built_in">Import-Module</span> ActiveDirectory
+<span class="hljs-built_in">Write-Host</span> <span class="hljs-string">"=== DC list ==="</span>
+<span class="hljs-built_in">Get-ADDomainController</span> <span class="hljs-literal">-Filter</span> * | Select Name,Site,IPv4Address
+<span class="hljs-built_in">Write-Host</span> <span class="hljs-string">"\n=== DCDiag summary ==="</span>
+dcdiag /v | <span class="hljs-built_in">Out-Host</span>
+<span class="hljs-built_in">Write-Host</span> <span class="hljs-string">"\n=== Replication summary ==="</span>
+repadmin /replsummary | <span class="hljs-built_in">Out-Host</span>
+</div></code></pre>
+<h3 id="script--provisionnement-basique-ou--utilisateur--groupe">Script : provisionnement basique (OU + utilisateur + groupe)</h3>
+<pre class="hljs"><code><div><span class="hljs-built_in">Import-Module</span> ActiveDirectory
+<span class="hljs-built_in">New-ADOrganizationalUnit</span> <span class="hljs-literal">-Name</span> <span class="hljs-string">"Informatique"</span> <span class="hljs-literal">-Path</span> <span class="hljs-string">"DC=entreprise,DC=local"</span>
+<span class="hljs-built_in">New-ADGroup</span> <span class="hljs-literal">-Name</span> <span class="hljs-string">"IT-Admins"</span> <span class="hljs-literal">-GroupScope</span> Global <span class="hljs-literal">-Path</span> <span class="hljs-string">"OU=Informatique,DC=entreprise,DC=local"</span>
+<span class="hljs-built_in">New-ADUser</span> <span class="hljs-literal">-Name</span> <span class="hljs-string">"Alice Admin"</span> <span class="hljs-literal">-SamAccountName</span> aadmin <span class="hljs-literal">-UserPrincipalName</span> aadmin@entreprise.local <span class="hljs-literal">-Path</span> <span class="hljs-string">"OU=Informatique,DC=entreprise,DC=local"</span> <span class="hljs-literal">-AccountPassword</span> (<span class="hljs-built_in">ConvertTo-SecureString</span> <span class="hljs-string">"P@ssw0rd!"</span> <span class="hljs-literal">-AsPlainText</span> <span class="hljs-literal">-Force</span>) <span class="hljs-literal">-Enabled</span> <span class="hljs-variable">$true</span>
+<span class="hljs-built_in">Add-ADGroupMember</span> <span class="hljs-literal">-Identity</span> <span class="hljs-string">"IT-Admins"</span> <span class="hljs-literal">-Members</span> aadmin
+</div></code></pre>
+<h3 id="promotion-du-serveur-en-contr%C3%B4leur-de-domaine-dc">Promotion du serveur en Contrôleur de Domaine (DC)</h3>
+<p>Après l'installation du rôle AD DS, il faut promouvoir le serveur en contrôleur de domaine. Deux méthodes : GUI ou PowerShell.</p>
+<h4 id="m%C3%A9thode-graphique">Méthode graphique</h4>
+<ol>
+<li>Dans le Gestionnaire de serveur, cliquez sur &quot;Promouvoir ce serveur en contrôleur de domaine&quot;.</li>
+<li>Choisissez &quot;Ajouter une nouvelle forêt&quot; si c'est le premier DC, et renseignez le nom DNS (ex. entreprise.local).</li>
+<li>Sélectionnez le niveau fonctionnel de la forêt et du domaine (Windows Server 2016/2019/2022 selon le besoin).</li>
+<li>Cochez &quot;Serveur DNS&quot; et &quot;Catalogue global (GC)&quot; si nécessaire.</li>
+<li>Définissez le mot de passe DSRM.</li>
+<li>Vérifiez les prérequis et redémarrez quand l'assistant le demande.</li>
+</ol>
+<h4 id="m%C3%A9thode-powershell-rapide-et-reproductible">Méthode PowerShell (rapide et reproductible)</h4>
+<ol>
+<li>Ouvrir PowerShell en admin.</li>
+<li>Installer le rôle AD DS :</li>
+</ol>
+<pre class="hljs"><code><div><span class="hljs-built_in">Install-WindowsFeature</span> AD<span class="hljs-literal">-Domain</span><span class="hljs-literal">-Services</span> <span class="hljs-literal">-IncludeManagementTools</span>
+</div></code></pre>
+<ol start="3">
+<li>Promouvoir le serveur (nouvelle forêt) :</li>
+</ol>
+<pre class="hljs"><code><div><span class="hljs-built_in">Import-Module</span> ADDSDeployment
+<span class="hljs-built_in">Install-ADDSForest</span> <span class="hljs-literal">-DomainName</span> <span class="hljs-string">"entreprise.local"</span> <span class="hljs-literal">-InstallDNS</span> <span class="hljs-literal">-DomainNetbiosName</span> <span class="hljs-string">"ENTREPRISE"</span> <span class="hljs-literal">-SafeModeAdministratorPassword</span> (<span class="hljs-built_in">Read-Host</span> <span class="hljs-literal">-AsSecureString</span> <span class="hljs-string">"Password DSRM"</span>)
+</div></code></pre>
+<ol start="4">
+<li>Redémarrer si nécessaire.</li>
+</ol>
+<p>Remarques : assurez-vous d'avoir une IP statique avant la promotion. Le serveur doit utiliser comme DNS principal lui-même (127.0.0.1 ou son IP) et en secondaire un forwarder interne/externe.</p>
+<h2 id="post-installation-et-v%C3%A9rifications-de-base">Post-installation et vérifications de base</h2>
+<ul>
+<li>Vérifiez que le service DNS fonctionne et que la zone (ex. entreprise.local) contient <em>msdcs</em>, SRV et enregistrements A des DC.</li>
+<li>Commandes utiles :</li>
+</ul>
+<pre class="hljs"><code><div>dcdiag /v
+repadmin /replsummary
+<span class="hljs-built_in">Get-ADDomainController</span> <span class="hljs-literal">-Filter</span> * | Select Name,IPv4Address,OperatingSystem
+</div></code></pre>
+<ul>
+<li>Testez LDAP/Kerberos (ldp.exe, klist) et l'accès utilisateur.</li>
+</ul>
+<h2 id="gestion-quotidienne-cr%C3%A9ation-et-administration-des-objets">Gestion quotidienne (création et administration des objets)</h2>
+<h3 id="utilisateurs-et-groupes">Utilisateurs et Groupes</h3>
+<p>Créer un utilisateur avec PowerShell :</p>
+<pre class="hljs"><code><div><span class="hljs-built_in">New-ADUser</span> <span class="hljs-literal">-Name</span> <span class="hljs-string">"Jean Dupont"</span> <span class="hljs-literal">-GivenName</span> Jean <span class="hljs-literal">-Surname</span> Dupont <span class="hljs-literal">-SamAccountName</span> jdupont <span class="hljs-literal">-UserPrincipalName</span> jdupont@entreprise.local <span class="hljs-literal">-AccountPassword</span> (<span class="hljs-built_in">Read-Host</span> <span class="hljs-literal">-AsSecureString</span> <span class="hljs-string">"Mot de passe"</span>) <span class="hljs-literal">-Enabled</span> <span class="hljs-variable">$true</span>
+</div></code></pre>
+<p>Groupes : privilégiez les groupes de sécurité pour les permissions et les groupes de distribution pour la messagerie. On va aussi dire : faites attention au nesting.</p>
+<h3 id="unit%C3%A9s-organisationnelles-ou-et-d%C3%A9l%C3%A9gation">Unités Organisationnelles (OU) et délégation</h3>
+<ul>
+<li>Organisez par OU (ex : OU=Users, OU=Computers, OU=Service, OU=Admins).</li>
+<li>Déléguez via l'assistant Delegation of Control pour limiter les droits d'admin.</li>
+</ul>
+<h3 id="gpo-group-policy-objects">GPO (Group Policy Objects)</h3>
+<ul>
+<li>Utilisez GPMC pour créer, lier et filtrer les GPO.</li>
+<li>Bonnes pratiques :
+<ul>
+<li>Liez les GPO au niveau des OU pour réduire l'impact.</li>
+<li>Nommez explicitement vos GPO (ex : &quot;GPO-PasswordPolicy-2025&quot;).</li>
+<li>Testez avec &quot;Group Policy Modeling&quot; et &quot;Group Policy Results&quot;.</li>
+</ul>
+</li>
+</ul>
+<p>Exemples :</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Forcer l'application d'une GPO</span>
+gpupdate /force
+
+<span class="hljs-comment"># Résultat des GPO pour un utilisateur/ordinateur</span>
+gpresult /r
+</div></code></pre>
+<h3 id="joindre-un-poste-au-domaine">Joindre un poste au domaine</h3>
+<ul>
+<li>Sur le poste : Panneau de configuration &gt; Système &gt; Modifier les paramètres &gt; Changer &gt; Domain et saisissez <code>entreprise.local</code>.</li>
+<li>Avec PowerShell (admin local) :</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-built_in">Add-Computer</span> <span class="hljs-literal">-DomainName</span> <span class="hljs-string">"entreprise.local"</span> <span class="hljs-literal">-Credential</span> (<span class="hljs-built_in">Get-Credential</span>) <span class="hljs-literal">-Restart</span>
+</div></code></pre>
+<h3 id="comptes-de-service">Comptes de service</h3>
+<ul>
+<li>Préférez les Managed Service Accounts (gMSA) pour éviter de gérer des mots de passe manuellement.</li>
+</ul>
+<p>Création d'un gMSA :</p>
+<pre class="hljs"><code><div><span class="hljs-built_in">New-ADServiceAccount</span> <span class="hljs-literal">-Name</span> <span class="hljs-string">"svc_sql_gmsa"</span> <span class="hljs-literal">-DNSHostName</span> <span class="hljs-string">"entreprise.local"</span> <span class="hljs-literal">-PrincipalsAllowedToRetrieveManagedPassword</span> <span class="hljs-string">"SQLServersGroup"</span>
+<span class="hljs-built_in">Install-ADServiceAccount</span> <span class="hljs-literal">-Identity</span> svc_sql_gmsa
+</div></code></pre>
+<h2 id="sauvegarde-et-restauration">Sauvegarde et restauration</h2>
+<ul>
+<li>Sauvegardez l'état système (System State) sur chaque DC avec Windows Server Backup.</li>
+<li>Restauration : non-autoritaire (laisser répliquer) ou autoritaire (<code>ntdsutil</code>) selon le besoin.</li>
+</ul>
+<p>Exemple de sauvegarde système :</p>
+<pre class="hljs"><code><div>wbadmin start systemstatebackup <span class="hljs-literal">-backuptarget</span>:D:\ <span class="hljs-literal">-quiet</span>
+</div></code></pre>
+<h2 id="r%C3%A9plication-active-directory">Réplication Active Directory</h2>
+<h3 id="concepts-cl%C3%A9s">Concepts clés</h3>
+<ul>
+<li>Réplication intra-site : fréquente et rapide.</li>
+<li>Réplication inter-site : planifiée, optimisée pour liens lents.</li>
+<li>KCC calcule la topologie intra-site.</li>
+<li>Bridgehead servers : points d'entrée pour la réplication inter-site.</li>
+</ul>
+<h3 id="sites-et-sous-r%C3%A9seaux">Sites et sous-réseaux</h3>
+<ul>
+<li>Définissez vos Sites dans &quot;Active Directory Sites and Services&quot; et associez les sous-réseaux IP (ex : 192.168.10.0/24).</li>
+<li>Configurez les site links : coûts, horaires et intervalles.</li>
+</ul>
+<h3 id="outils-de-diagnostic-et-commandes-utiles">Outils de diagnostic et commandes utiles</h3>
+<ul>
+<li><code>repadmin /replsummary</code> : résumé de la réplication.</li>
+<li><code>repadmin /showrepl &lt;DCName&gt;</code> : détail des partenaires.</li>
+<li><code>repadmin /syncall &lt;DCName&gt; /A /e /P</code> : forcer la sync.</li>
+<li><code>dcdiag /v</code> : tests santé du DC.</li>
+<li><code>nltest /dsgetdc:entreprise.local</code> : localiser un DC.</li>
+</ul>
+<h3 id="d%C3%A9lai-et-param%C3%A8tres">Délai et paramètres</h3>
+<ul>
+<li>Les intervalles inter-site sont en minutes par défaut et ajustables.</li>
+<li>N'augmentez pas trop la fréquence sur des liens à faible bande passante.</li>
+</ul>
+<h3 id="gestion-des-conflits-et-objets-supprim%C3%A9s">Gestion des conflits et objets supprimés</h3>
+<ul>
+<li>AD utilise USN et timestamps pour résoudre les conflits.</li>
+<li>&quot;Tombstone lifetime&quot; : période pendant laquelle un objet supprimé est récupérable.</li>
+</ul>
+<h2 id="fsmo-flexible-single-master-operations">FSMO (Flexible Single Master Operations)</h2>
+<ul>
+<li>Rôles : Schema Master, Domain Naming Master, RID Master, PDC Emulator, Infrastructure Master.</li>
+<li>Vérifier détenteurs :</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-built_in">Get-ADForest</span> | <span class="hljs-built_in">Format-List</span> SchemaMaster,DomainNamingMaster
+<span class="hljs-built_in">Get-ADDomain</span> | <span class="hljs-built_in">Format-List</span> PDCEmulator,RIDMaster,InfrastructureMaster
+</div></code></pre>
+<ul>
+<li>Déplacer un rôle : <code>Move-ADDirectoryServerOperationMasterRole</code>.</li>
+</ul>
+<h2 id="int%C3%A9gration-doutils-et-services-courants">Intégration d'outils et services courants</h2>
+<ul>
+<li>RSAT : installez sur les postes d'administration pour obtenir ADUC, AD Sites and Services, GPMC.</li>
+<li>PowerShell ActiveDirectory module pour l'automatisation.</li>
+<li>DCDiag, Repadmin, Event Viewer pour le diagnostic.</li>
+<li>Windows Admin Center pour une console web.</li>
+<li>DHCP : autoriser le serveur DHCP dans AD avant distribution.</li>
+<li>PKI / AD CS pour intégrer des certificats (Smartcard, VPN, LDAPS).</li>
+<li>NPS pour RADIUS.</li>
+<li>DFS pour espaces de noms partagés et réplication.</li>
+</ul>
+<h3 id="exemples-rapides-dutilisation-doutils">Exemples rapides d'utilisation d'outils</h3>
+<pre class="hljs"><code><div><span class="hljs-comment"># Lister tous les contrôleurs</span>
+<span class="hljs-built_in">Get-ADDomainController</span> <span class="hljs-literal">-Filter</span> * | Select Name,Site,IPv4Address
+
+<span class="hljs-comment"># Vérifier la réplication</span>
+repadmin /replsummary
+
+<span class="hljs-comment"># Tester la santé d'un DC</span>
+dcdiag /s:MonDC
+</div></code></pre>
+<h2 id="s%C3%A9curit%C3%A9-et-bonnes-pratiques">Sécurité et bonnes pratiques</h2>
+<ul>
+<li>Séparez les comptes d'administration (usage quotidien vs admin global).</li>
+<li>Limitez les membres de <code>Domain Admins</code> et <code>Enterprise Admins</code>.</li>
+<li>Activez la journalisation et surveillez événements critiques (4625, 4740...).</li>
+<li>Synchronisation horaire : PDC Emulator sur une source externe fiable.</li>
+<li>Utilisez LAPS pour gérer les mots de passe locaux.</li>
+<li>Appliquez des politiques de mot de passe robustes et MFA pour l'accès admin.</li>
+</ul>
+<h2 id="checklist-de-mise-en-production">Checklist de mise en production</h2>
+<ol>
+<li>IP statique et nom d'hôte configurés.</li>
+<li>DNS interne configuré et vérifié.</li>
+<li>Au moins deux contrôleurs de domaine pour la redondance.</li>
+<li>Plan de sauvegarde System State et tests de restauration.</li>
+<li>Sites &amp; Services configurés avec sous-réseaux corrects.</li>
+<li>FSMO roles documentés et plans de transfert.</li>
+<li>GPOs testés en pré-production.</li>
+<li>Processus de délégation et comptes de service (gMSA) en place.</li>
+</ol>
+<h2 id="r%C3%A9solution-de-probl%C3%A8mes-courants">Résolution de problèmes courants</h2>
+<ul>
+<li>Problème : réplication échoue. Actions : vérifier réseau, DNS, <code>repadmin /showrepl</code>, <code>dcdiag</code>, l'heure système.</li>
+<li>Problème : utilisateur ne peut pas s'authentifier. Actions : vérifier appartenance au domaine, état du compte, verrouillage, <code>nltest</code>, Kerberos et DNS.</li>
+</ul>
+<h2 id="annexes--commandes-utiles">Annexes — commandes utiles</h2>
+<ul>
+<li><code>Get-ADUser -Filter *</code> : lister les utilisateurs.</li>
+<li><code>Get-ADGroupMember -Identity &quot;GroupeNom&quot;</code> : lister membres d'un groupe.</li>
+<li><code>Move-ADDirectoryServerOperationMasterRole -Identity &quot;TargetDC&quot; -OperationMasterRole PDCEmulator</code> : déplacer un rôle FSMO.</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>Cette documentation donne une vue complète et opérationnelle pour installer, administrer et maintenir Active Directory. Adaptez niveaux fonctionnels, intervalles de réplication et règles de sécurité à votre contexte. Documentez chaque changement et testez les procédures de sauvegarde/restauration avant mise en production.</p>
+<p>Petite remarque pratique : dans mon labo à Limoges, j'ai souvent vu que configurer le DNS local avant toute promotion évite 80% des problèmes — faites-le en premier, vraiment.</p>
+<p>Exemple concret : déploiement effectué le 12-06-2024 sur la VM &quot;dc1-entreprise&quot; hébergée à Limoges.</p>
+<hr>
+<p>Changelog:</p>
+<ul>
+<li>v1.0 — Reformulation complète pour ton équipe; ajouts : métadonnées, remarque pratique et exemple concret.</li>
+<li>Corrections mineures de mise en forme.</li>
+</ul>
+
+</body>
+</html>
