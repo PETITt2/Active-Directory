@@ -151,7 +151,7 @@ Pour demarer l'installation il vous faudra vous demarer et vous connecter sur le
 
 1- Ouvrez le gestionnaire de serveur 
 
-<img src="./img/Capture2.png" alt="kerberos" width="300"/>
+<img src="./img/Capture2.png" alt="Capture2" width="300"/>
 
 *Le Gestionnaire de serveur est natif a Windows Server, celui-ci permet de gerer et configurer les fonctionnalité du systeme (AD, DNS, DHCP...), ainsi que de superviser l'état general du serveur*
 
@@ -163,7 +163,7 @@ Pour demarer l'installation il vous faudra vous demarer et vous connecter sur le
 
 5 - Cochez le service **services AD DS** pour installer le role Active Directory
 
-<img src="./img/Capture8.png" alt="kerberos" width="600"/>
+<img src="./img/Capture8.png" alt="Capture8" width="600"/>
 
 
 *Ici on a deja les roles et groupes par defaut*
@@ -172,9 +172,9 @@ Il vous faudra ajoutez le role ***Active Directory Domain Services (AD DS)*** po
 
 | | |
 |---|---|
-|<img src="./img/Capture9.png" alt="kerberos" width="600"/> | <img src="./img/Capture10.png" alt="kerberos" width="600"/>|
-|<img src="./img/Capture11.png" alt="kerberos" width="600"/>|<img src="./img/Capture12.png" alt="kerberos" width="600"/>|
-|<img src="./img/Capture13.png" alt="kerberos" width="600"/>|<img src="./img/Capture14.png" alt="kerberos" width="600"/>|
+|<img src="/img/Capture9.png" alt="Capture9" width="600"/> | <img src="/img/Capture10.png" alt="Capture10" width="600"/>|
+|<img src="/img/Capture11.png" alt="Capture11" width="600"/>|<img src="/img/Capture12.png" alt="Capture12" width="600"/>|
+|<img src="/img/Capture13.png" alt="Capture13" width="600"/>|<img src="/img/Capture14.png" alt="Capture14" width="600"/>|
 
 
 
@@ -255,12 +255,12 @@ Ici on rentre un peu plus dans le technique pour comprendre comment fonctionne l
 
 ### Kerberos — authentification par tickets
 
-<img src="./img/Capture6.png" alt="kerberos" width="100"/>
+<img src="./img/Capture6.png" alt="Capture6" width="100"/>
 
 - Kerberos est le protocole principal d'authentification dans AD. Lors d'une connexion, l'utilisateur obtient un TGT (Ticket Granting Ticket) du KDC (Key Distribution Center) qui tourne sur un DC, puis il reçoit des tickets de service pour accéder aux ressources.
 - Point crucial : l'heure doit être synchronisée via NTP ; si la différence dépasse 5 minutes, Kerberos peut échouer.
 
-<img src="./img/Capture7.png" alt="kerberos" width="500"/>
+<img src="./img/Capture7.png" alt="Capture7" width="500"/>
 
 ### DNS et enregistrements SRV
 
@@ -689,7 +689,7 @@ Pour demarer l'installation il vous faudra vous demarer et vous connecter sur le
 
 1- Ouvrez le gestionnaire de serveur 
 
-<img src="./img/Capture2.png" alt="kerberos" width="300"/>
+<img src="./img/Capture2.png" alt="Capture2" width="300"/>
 
 *Le Gestionnaire de serveur est natif a Windows Server, celui-ci permet de gerer et configurer les fonctionnalité du systeme (AD, DNS, DHCP...), ainsi que de superviser l'état general du serveur*
 
@@ -701,7 +701,7 @@ Pour demarer l'installation il vous faudra vous demarer et vous connecter sur le
 
 5 - Cochez le service **services AD DS** pour installer le role Active Directory
 
-<img src="./img/Capture8.png" alt="kerberos" width="600"/>
+<img src="./img/Capture8.png" alt="Capture8" width="600"/>
 
 
 *Ici on a deja les roles et groupes par defaut*
@@ -1122,4 +1122,5 @@ Exemple concret : déploiement effectué le 12-06-2024 sur la VM "dc1-entreprise
 Changelog:
 
 - v1.0 — Reformulation complète pour ton équipe; ajouts : métadonnées, remarque pratique et exemple concret.
+
 - Corrections mineures de mise en forme.
